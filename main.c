@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/29 20:36:50 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/29 21:19:51 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,28 @@ void	ft_line(void *mlx_ptr, void *win_ptr, int x0, int y0, int x1, int y1)
 {
 	int dx;
 	int dy;
+	int cd;
 
-	dx = x0 - x1;
-	dy = y0 - y1;
-	while (x0++ < x1)
-		mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, 0xFFFFFF);
-	while (y0++ < y1)
-		mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, 0xFFFFFF);
+	dx = x1 - x0;
+	dy = y1 - y0;
+	cd = 2 * dy - dx;
 
+	mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, 0xFFFFFF);
+
+	while (x0 < x1)
+	{
+		if (cd <= 0)
+		{
+			cd++;
+			x0++;
+		}
+		else
+		{
+			x0++;
+			y0++;
+		}
+		mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, 0xFFFFFF);
+	}
 }
 
 int	main(void)
@@ -36,8 +50,8 @@ int	main(void)
 	win_ptr0 = mlx_new_window(mlx_ptr0, 500, 500, "my mlx");
 	win_ptr1 = mlx_new_window(mlx_ptr0, 500, 500, "real mlx");
 
-	ft_line(mlx_ptr0, win_ptr0, 100, 50, 250, 150);
-	bresen_line(mlx_ptr0, win_ptr1, 100, 50, 250, 150);
+	ft_line(mlx_ptr0, win_ptr0, 50, 500, 100, 50);
+	bresen_line(mlx_ptr0, win_ptr1, 50, 500, 100, 50);
 
 
 
