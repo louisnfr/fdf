@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/29 20:35:03 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/29 20:36:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ void	ft_line(void *mlx_ptr, void *win_ptr, int x0, int y0, int x1, int y1)
 	dx = x0 - x1;
 	dy = y0 - y1;
 	while (x0++ < x1)
-	{
 		mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, 0xFFFFFF);
-		while (y0++ < y1)
-			mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, 0xFFFFFF);
-	}
+	while (y0++ < y1)
+		mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, 0xFFFFFF);
+
 }
 
 int	main(void)
