@@ -6,34 +6,37 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/30 15:52:06 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/30 16:43:03 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-
 // only works for lines with slope < 1
-void	ft_line(void *mlx_ptr, void *win_ptr, int x0, int y0, int x1, int y1)
+void	ft_line(void *mlx_ptr, void *win_ptr, t_point a, t_point b)
 {
+	int x;
+	int y;
 	int dx;
 	int dy;
 	int P;
 
-	dx = x1 - x0;
-	dy = y1 - y0;
+	x = a.x;
+	y = a.y;
+	dx = b.x - a.x;
+	dy = b.y - a.y;
 	P = 2 * dy - dx;
 
-	while (x0 < x1)
+	while (x < b.x)
 	{
-		mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, 0xFFFFFF);
-		x0++;
+		mlx_pixel_put(mlx_ptr, win_ptr, x, y, 0xFFFFFF);
+		x++;
 		if (P <= 0)
 			P = P + 2 * dy;
 		else
 		{
 			P = P + 2 * dy - 2 *dx;
-			y0++;
+			x++;
 		}
 	}
 }
@@ -42,16 +45,13 @@ int	main(void)
 {
 	void	*mlx_ptr0;
 	void	*win_ptr0;
-	void	*win_ptr1;
+	t_point A = {125, 100};
+	t_point B = {375, 25};
 
 	mlx_ptr0 = mlx_init();
 	win_ptr0 = mlx_new_window(mlx_ptr0, 500, 500, "my mlx");
-	win_ptr1 = mlx_new_window(mlx_ptr0, 500, 500, "real mlx");
 
-	ft_line(mlx_ptr0, win_ptr0, 125, 100, 375, 25);
-	bresen_line(mlx_ptr0, win_ptr1, 125, 100, 375, 25);
-
-
+	ft_line(mlx_ptr0, win_ptr0, A, B);
 
 	mlx_loop(mlx_ptr0);
 	return (0);
