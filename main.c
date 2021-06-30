@@ -6,41 +6,35 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/06/29 18:12:38 by lraffin          ###   ########.fr       */
-=======
-/*   Updated: 2021/06/29 21:19:51 by lraffin          ###   ########.fr       */
->>>>>>> 016a7ec54183a24b830529efbe35c56a1438f581
+/*   Updated: 2021/06/30 15:52:06 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+
+// only works for lines with slope < 1
 void	ft_line(void *mlx_ptr, void *win_ptr, int x0, int y0, int x1, int y1)
 {
 	int dx;
 	int dy;
-	int cd;
+	int P;
 
 	dx = x1 - x0;
 	dy = y1 - y0;
-	cd = 2 * dy - dx;
-
-	mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, 0xFFFFFF);
+	P = 2 * dy - dx;
 
 	while (x0 < x1)
 	{
-		if (cd <= 0)
-		{
-			cd++;
-			x0++;
-		}
+		mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, 0xFFFFFF);
+		x0++;
+		if (P <= 0)
+			P = P + 2 * dy;
 		else
 		{
-			x0++;
+			P = P + 2 * dy - 2 *dx;
 			y0++;
 		}
-		mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, 0xFFFFFF);
 	}
 }
 
@@ -54,8 +48,8 @@ int	main(void)
 	win_ptr0 = mlx_new_window(mlx_ptr0, 500, 500, "my mlx");
 	win_ptr1 = mlx_new_window(mlx_ptr0, 500, 500, "real mlx");
 
-	ft_line(mlx_ptr0, win_ptr0, 50, 500, 100, 50);
-	bresen_line(mlx_ptr0, win_ptr1, 50, 500, 100, 50);
+	ft_line(mlx_ptr0, win_ptr0, 125, 100, 375, 25);
+	bresen_line(mlx_ptr0, win_ptr1, 125, 100, 375, 25);
 
 
 
