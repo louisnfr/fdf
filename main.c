@@ -6,11 +6,11 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/30 19:00:45 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/01 16:49:30 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "include/fdf.h"
 
 // only works for lines with slope < 1
 void ft_line(void *mlx_ptr, void *win_ptr, t_point a, t_point b)
@@ -46,7 +46,7 @@ int main(void)
 	void *mlx_ptr0;
 	void *win_ptr0;
 	t_point A = {150, 50};
-	t_point B = {450, 450};
+	t_point B = {200, 300};
 
 	mlx_ptr0 = mlx_init();
 	win_ptr0 = mlx_new_window(mlx_ptr0, 500, 500, "my mlx");
