@@ -6,13 +6,40 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/01 16:49:30 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/03 17:49:40 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/fdf.h"
 
-// only works for lines with slope < 1
+int ft_abs(int n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
+}
+
+int deal_key(int key, void *param)
+{
+	t_mlx *win = param;
+	if (key == 53)
+		mlx_destroy_window(win->mlx_ptr, win->win_ptr);
+	return (0);
+}
+
+int deal_mouse(int key, void *param)
+{
+	t_mlx *win = param;
+	printf("mouse: %d\n", key);
+	return (0);
+}
+
+int mouse_move(int x, int y, void *param)
+{
+
+}
+
+// only works for lines with slope <= 1
 void ft_line(void *mlx_ptr, void *win_ptr, t_point a, t_point b)
 {
 	int x;
@@ -27,32 +54,77 @@ void ft_line(void *mlx_ptr, void *win_ptr, t_point a, t_point b)
 	dy = b.y - a.y;
 	P = 2 * dy - dx;
 
-	while (x < b.x)
+	if (ft_abs(dx) > ft_abs(dy))
 	{
-		mlx_pixel_put(mlx_ptr, win_ptr, x, y, 0xFFFFFF);
-		x++;
-		if (P <= 0)
-			P = P + 2 * dy;
-		else
+		while (x < b.x)
 		{
-			P = P + 2 * dy - 2 * dx;
-			y++;
+			mlx_pixel_put(mlx_ptr, win_ptr, x, y, GREEN);
+			x++;
+			if (P < 0)
+				P = P + 2 * ft_abs(dy);
+			else
+			{
+				P = P + 2 * ft_abs(dy) - 2 * ft_abs(dx);
+				y++;
+			}
 		}
+	}
+	else
+	{
+		while (x < b.x)
+		{
+			mlx_pixel_put(mlx_ptr, win_ptr, x, y, GREEN);
+			y++;
+			if (P <= 0)
+				P = P + 2 * ft_abs(dx);
+			else
+			{
+				P = P + 2 * ft_abs(dx) - 2 * ft_abs(dy);
+				x++;
+			}
+		}
+	}
+}
+
+void plot_line(void *mlx_ptr, void *win_ptr, t_point a, t_point b)
+{
+	int dx = ft_abs(b.x - a.x), sx = a.x < b.x ? 1 : -1;
+	int dy = -ft_abs(b.y - a.y), sy = a.y < b.y ? 1 : -1;
+	int err = dx + dy, e2; /* error value e_xy */
+
+	while (1)
+	{
+		mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, RED);
+		if (a.x == b.x && a.y == b.y)
+			break;
+		e2 = 2 * err;
+		if (e2 >= dy) {
+			err += dy;
+			a.x += sx;
+		} /* e_xy+e_x > 0 */
+		if (e2 <= dx)
+		{
+			err += dx;
+			a.y += sy;
+		} /* e_xy+e_y < 0 */
 	}
 }
 
 int main(void)
 {
-	void *mlx_ptr0;
-	void *win_ptr0;
-	t_point A = {150, 50};
-	t_point B = {200, 300};
+	t_mlx *win;
+	t_point A = {0, 500};
+	t_point B = {1000, 501};
 
-	mlx_ptr0 = mlx_init();
-	win_ptr0 = mlx_new_window(mlx_ptr0, 500, 500, "my mlx");
+	win->mlx_ptr = mlx_init();
+	win->win_ptr = mlx_new_window(win->mlx_ptr, 1000, 1000, "my mlx");
 
-	ft_line(mlx_ptr0, win_ptr0, A, B);
+	ft_line(win->mlx_ptr, win->win_ptr, A, B);
+	plot_line(win->mlx_ptr, win->win_ptr, A, B);
 
-	mlx_loop(mlx_ptr0);
+	mlx_key_hook(win->win_ptr, deal_key, win);
+	// mlx_hook(win->win_ptr, 6, ,0 mouse_move, (void *)0);
+	mlx_mouse_hook(win->win_ptr, deal_mouse, win);
+	mlx_loop(win->mlx_ptr);
 	return (0);
 }
