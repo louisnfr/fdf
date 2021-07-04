@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/03 10:42:22 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/04 19:19:19 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FDF_H
 
 #include "mlx.h"
+#include <unistd.h>
 #include <stdio.h>
 #include <math.h>
 
@@ -27,6 +28,18 @@ typedef struct s_point
 	int x;
 	int y;
 } t_point;
+
+typedef struct s_line
+{
+	t_point a;
+	t_point b;
+} t_line;
+
+typedef struct s_triangle
+{
+	t_point a;
+	t_point b;
+} t_triangle;
 
 typedef struct s_mlx
 {
