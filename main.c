@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/04 19:23:52 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/04 20:33:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,15 @@ int mouse_move(int key, int x, int y, void *param)
 {
 	t_line *line = param;
 
-	if (fork() == 0)
+	if (key == 1)
 	{
+		printf("key: %d\n", key);
+		// printf("FIRST POINT:\nx: %d\ny: %d\n", x, y);
 		if (key == 1)
 		{
-			printf("FIRST POINT:\nx: %d\ny: %d\n", x, y);
+		printf("key: %d\n", key);
+			// printf("SECOND POINT:\nx: %d\ny: %d\n", x, y);
 		}
-
-	}
-	else
-	{
-		if (key == 1)
-		{
-			printf("SECOND POINT:\nx: %d\ny: %d\n", x, y);
-		}
-
 	}
 	return (0);
 }
@@ -135,8 +129,9 @@ int main(void)
 	plot_line(win->mlx_ptr, win->win_ptr, A, B);
 
 	mlx_key_hook(win->win_ptr, deal_key, win);
-	mlx_mouse_hook(win->win_ptr, mouse_move, win);
-	mlx_hook(win->win_ptr, 6, 0, mouse_move, win);
+	//mlx_mouse_hook(win->win_ptr, mouse_move, win);
+	mlx_hook(win->win_ptr, 4, 0L, mouse_move, win);
+	mlx_hook(win->win_ptr, 5, 0L, mouse_move, win);
 	mlx_loop(win->mlx_ptr);
 	return (0);
 }
