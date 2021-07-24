@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/24 16:48:59 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/24 16:53:07 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int main(int ac, char **av)
 	win->mlx_ptr = mlx_init();
 	win->win_ptr = mlx_new_window(win->mlx_ptr, 1000, 1000, "my mlx");
 
-
+	
 
 	mlx_key_hook(win->win_ptr, deal_key, win);
 	mlx_hook(win->win_ptr, 4, 0L, mouse_move, win);
