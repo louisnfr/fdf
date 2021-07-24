@@ -6,52 +6,79 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/24 17:00:19 by lraffin           #+#    #+#              #
-#    Updated: 2021/07/24 17:45:14 by lraffin          ###   ########.fr        #
+#    Updated: 2021/07/24 20:02:52 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=			fdf.a
+# Name
 
-CC= 			gcc
+NAME =	fdf
 
-CFLAGS=			-Wall -Wextra -Werror
+# Path
 
-SRC_PATH=		src/
+SRC_PATH =		./src/
 
-SRC_FILES=		src/fdf_events.c \
-				src/fdf_line.c
+INCLUDE_PATH =	./include/
 
-INCLUDE_PATH=	include/
+OBJ_PATH =		./obj/
 
-LIBFT_PATH=		libft/
+# Binary
 
-LIBFT_LIB=		libft.a
+SRC_NAME =	main.c \
+			fdf_events.c \
+			fdf_line.c
 
-SRC_OBJS=		${SRC_FILES:.c=.o}
+OBJ_NAME =	$(SRC_NAME:.c=.o)
 
-RM=				rm -f
+# Files
 
-AR=				ar rcs
+SRC =	$(addprefix $(SRC_PATH), $(SRC_NAME))
 
-LIBFT_OBJS=		${LIBFT_PATH}*.o
+OBJ =	$(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-LIBFTMAKE=		$(MAKE) -C ${LIBFT_PATH} bonus
+# Flags
 
-all:			${NAME}
+CC =		gcc $(CFLAGS)
 
-${NAME}:		${SRC_OBJS} libmake
-				${AR} ${NAME} ${SRC_OBJS} ${LIBFT_OBJS}
+LDFLAGS = -L./libft/
 
-libmake:
-				${LIBFTMAKE}
+LFT = -lft
+
+CFLAGS =	-Wall -Wextra -Werror
+
+MLX =		-lmlx -framework OpenGL -framework AppKit
+
+# Rules
+
+all:	$(NAME)
+
+$(NAME):	$(OBJ)
+	@make -C ./libft/
+	@echo "\033[34mCreation of $(NAME) ...\033[0m"
+	@$(CC) $(LDFLAGS) $(LFT) $(OBJ) -o $@ $(MLX)
+	@echo "\033[32m$(NAME) created\n\033[0m"
+
+$(OBJ_PATH)%.o:	$(SRC_PATH)%.c
+	@mkdir $(OBJ_PATH) 2> /dev/null || true
+	@$(CC) $(CPPFLAGS) -o $@ -c $<
 
 clean:
-				make -C ${LIBFT_PATH} clean
-				${RM} ${SRC_OBJS}
+	@make clean -C ./libft/
+	@echo "\033[33mRemoval of .o files of $(NAME) ...\033[0m"
+	@rm -f $(OBJ)
+	@rmdir $(OBJ_PATH) 2> /dev/null || true
+	@echo "\033[31mFiles .o deleted\n\033[0m"
 
-fclean: 		clean
-				${RM} ${NAME} ${LIBFT_PATH}${LIBFT_LIB}
+fclean:	clean
+	@make fclean -C ./libft/
+	@echo "\033[33mRemoval of $(NAME)...\033[0m"
+	@rm -f $(NAME)
+	@echo "\033[31mBinary $(NAME) deleted\n\033[0m"
 
-re:				fclean all
+re:		fclean all
 
-.PHONY:			all clean fclean re libmake
+norm:
+	@norminette -R CheckForbiddenSourceHeader $(SRC)
+	@norminette -R CheckDefine $(INCLUDE_PATH)*.h
+
+.PHONY:	all clean fclean re, norm

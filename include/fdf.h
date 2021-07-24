@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/24 17:40:08 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/24 19:45:16 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@
 #define BLUE 0x00B6FF
 #define RED 0xFF0000
 
+typedef struct s_mlx
+{
+	void *mlx_ptr;
+	void *win_ptr;
+} t_mlx;
+
 typedef struct s_point
 {
 	int x;
@@ -34,12 +40,6 @@ typedef struct s_line
 	t_point a;
 	t_point b;
 } t_line;
-
-typedef struct s_mlx
-{
-	void *mlx_ptr;
-	void *win_ptr;
-} t_mlx;
 
 int deal_key(int key, void *param);
 int mouse_move(int key, int x, int y, void *param);
