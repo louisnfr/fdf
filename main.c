@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/23 15:25:22 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/24 16:48:59 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void plot_line(void *mlx_ptr, void *win_ptr, t_point a, t_point b)
 {
 	int dx = ft_abs(b.x - a.x), sx = a.x < b.x ? 1 : -1;
 	int dy = -ft_abs(b.y - a.y), sy = a.y < b.y ? 1 : -1;
-	int err = dx + dy, e2; /* error value e_xy */
+	int err = dx + dy, e2;
 
 	while (1)
 	{
-		mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, GREEN);
+		mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, GREEN * a.x);
 		if (a.x == b.x && a.y == b.y)
 			break;
 		e2 = 2 * err;
@@ -45,12 +45,12 @@ void plot_line(void *mlx_ptr, void *win_ptr, t_point a, t_point b)
 		{
 			err += dy;
 			a.x += sx;
-		} /* e_xy+e_x > 0 */
+		}
 		if (e2 <= dx)
 		{
 			err += dx;
 			a.y += sy;
-		} /* e_xy+e_y < 0 */
+		}
 	}
 }
 
@@ -58,7 +58,7 @@ int mouse_move(int key, int x, int y, void *param)
 {
 	t_mlx *win = param;
 	t_line *line;
-	t_point o = {0, 0};
+	t_point o = {500, 500};
 	t_point p;
 
 	if (key == 1)
@@ -70,20 +70,15 @@ int mouse_move(int key, int x, int y, void *param)
 	return (0);
 }
 
-int main(void)
+int main(int ac, char **av)
 {
 	t_mlx *win;
-	t_point A = {50, 50};
-	t_point B = {900, 751};
-
 	win->mlx_ptr = mlx_init();
 	win->win_ptr = mlx_new_window(win->mlx_ptr, 1000, 1000, "my mlx");
 
-	plot_line(win->mlx_ptr, win->win_ptr, A, B);
+
 
 	mlx_key_hook(win->win_ptr, deal_key, win);
-	//mlx_mouse_hook(win->win_ptr, mouse_move, win);
-	mlx_hook(win->win_ptr, 4, 0L, mouse_move, win);
 	mlx_hook(win->win_ptr, 4, 0L, mouse_move, win);
 	mlx_loop(win->mlx_ptr);
 	return (0);
