@@ -6,22 +6,23 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/24 19:45:16 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/24 23:23:36 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-#include "mlx.h"
-#include <unistd.h>
-#include <stdio.h>
-#include <math.h>
+# include <mlx.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdio.h>
+# include <math.h>
 
-#define WHITE 0xFFFFFF
-#define GREEN 0x00FF59
-#define BLUE 0x00B6FF
-#define RED 0xFF0000
+# define WHITE 0xFFFFFF
+# define GREEN 0x00FF59
+# define BLUE 0x00B6FF
+# define RED 0xFF0000
 
 typedef struct s_mlx
 {

@@ -6,14 +6,14 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/24 17:52:16 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/24 23:09:49 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 #include "../include/libft.h"
 
-void plot_line(void *mlx_ptr, void *win_ptr, t_point a, t_point b)
+void	plot_line(void *mlx_ptr, void *win_ptr, t_point a, t_point b)
 {
 	int dx = ft_abs(b.x - a.x), sx = a.x < b.x ? 1 : -1;
 	int dy = -ft_abs(b.y - a.y), sy = a.y < b.y ? 1 : -1;
