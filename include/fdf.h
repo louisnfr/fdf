@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/04 19:19:19 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/24 17:40:08 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,15 @@ typedef struct s_line
 	t_point b;
 } t_line;
 
-typedef struct s_triangle
-{
-	t_point a;
-	t_point b;
-} t_triangle;
-
 typedef struct s_mlx
 {
 	void *mlx_ptr;
 	void *win_ptr;
 } t_mlx;
+
+int deal_key(int key, void *param);
+int mouse_move(int key, int x, int y, void *param);
+void plot_line(void *mlx_ptr, void *win_ptr, t_point a, t_point b);
+
 
 #endif

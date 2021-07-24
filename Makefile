@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/24 17:00:19 by lraffin           #+#    #+#              #
-#    Updated: 2021/07/24 17:27:25 by lraffin          ###   ########.fr        #
+#    Updated: 2021/07/24 17:45:14 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ CFLAGS=			-Wall -Wextra -Werror
 
 SRC_PATH=		src/
 
-SRC_FILES=		src/fdf.c \
-				src/fdf_utils.c
+SRC_FILES=		src/fdf_events.c \
+				src/fdf_line.c
 
 INCLUDE_PATH=	include/
 
@@ -39,7 +39,7 @@ LIBFTMAKE=		$(MAKE) -C ${LIBFT_PATH} bonus
 
 all:			${NAME}
 
-${NAME}:    	${SRC_OBJS} libmake
+${NAME}:		${SRC_OBJS} libmake
 				${AR} ${NAME} ${SRC_OBJS} ${LIBFT_OBJS}
 
 libmake:
