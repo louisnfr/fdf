@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/24 17:00:19 by lraffin           #+#    #+#              #
-#    Updated: 2021/07/24 20:02:52 by lraffin          ###   ########.fr        #
+#    Updated: 2021/07/24 20:17:26 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ LDFLAGS = -L./libft/
 
 LFT = -lft
 
-CFLAGS =	-Wall -Wextra -Werror
+CFLAGS =	-Wall -Wextra -Werror -fsanitize=address
 
 MLX =		-lmlx -framework OpenGL -framework AppKit
 
