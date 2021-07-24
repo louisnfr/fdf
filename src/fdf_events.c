@@ -6,11 +6,12 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:35:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/24 17:39:43 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/24 18:10:31 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+#include "../include/libft.h"
 
 int deal_key(int key, void *param)
 {
