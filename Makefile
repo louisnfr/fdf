@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/24 17:00:19 by lraffin           #+#    #+#              #
-#    Updated: 2021/07/24 22:48:06 by lraffin          ###   ########.fr        #
+#    Updated: 2021/07/24 23:39:18 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ OBJ_PATH =		./obj/
 # Binary
 
 SRC_NAME =	main.c \
+			fdf.c \
 			fdf_events.c \
 			fdf_line.c
 

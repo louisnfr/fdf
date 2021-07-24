@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/24 23:23:36 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/24 23:45:16 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ typedef struct s_line
 	t_point b;
 } t_line;
 
-int deal_key(int key, void *param);
-int mouse_move(int key, int x, int y, void *param);
-void plot_line(void *mlx_ptr, void *win_ptr, t_point a, t_point b);
+int		deal_key(int key, void *param);
+int		mouse_move(int key, int x, int y, void *param);
+void	plot_line(void *mlx_ptr, void *win_ptr, t_point a, t_point b);
+void	fdf(char *av);
 
 
 #endif
