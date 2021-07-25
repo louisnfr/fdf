@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/25 17:53:34 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/25 18:41:17 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 # include <mlx.h>
 # include <math.h>
 # include <errno.h>
+
+# define HEIGHT 1080
+# define WIDTH 1920
 
 void	ft_fdf(char *av);
 int		ft_parse(char *av);

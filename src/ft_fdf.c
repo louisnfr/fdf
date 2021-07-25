@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 23:42:58 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/25 17:53:50 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/25 18:58:25 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void ft_fdf(char *av)
 		return ;
 	nbline = -1;
 	win->mlx_ptr = mlx_init();
-	win->win_ptr = mlx_new_window(win->mlx_ptr, 750, 750, "fdf");
+	win->win_ptr = mlx_new_window(win->mlx_ptr, HEIGHT, WIDTH, "fdf");
 
 	fd = open(av, O_RDONLY);
-	while (get_next_line(fd, &line) > 0)
+	while (get_next_line(fd, &line))
 	{
 		nbline++;
 		i = -1;
@@ -41,6 +41,5 @@ void ft_fdf(char *av)
 		}
 	}
 	mlx_key_hook(win->win_ptr, ft_deal_key, win);
-	mlx_hook(win->win_ptr, 4, 0L, ft_mouse_move, win);
 	mlx_loop(win->mlx_ptr);
 }
