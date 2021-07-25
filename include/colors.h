@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/25 16:54:14 by lraffin          ###   ########.fr       */
+/*   Created: 2021/07/25 17:12:37 by lraffin           #+#    #+#             */
+/*   Updated: 2021/07/25 17:29:42 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
-#include "../include/libft.h"
+#ifndef COLORS_H
+# define COLORS_H
 
-int main(int ac, char **av)
-{
-	if (ac == 2)
-	{
-		ft_parse(av[1]);
-	}
-	else
-		ft_putstr("usage: ./fdf [file]\n");
-	return (0);
-}
+# define WHITE 0xFFFFFF
+# define GREEN 0x00FF59
+# define BLUE 0x00B6FF
+# define RED 0xFF0000
+
+#endif

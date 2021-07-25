@@ -1,39 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_events.c                                       :+:      :+:    :+:   */
+/*   ft_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 17:35:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/24 18:10:31 by lraffin          ###   ########.fr       */
+/*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
+/*   Updated: 2021/07/25 17:15:13 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
-#include "../include/libft.h"
 
-int deal_key(int key, void *param)
+int	ft_parse(char *av)
 {
-	t_mlx *win = param;
-	if (key == 53)
-		mlx_destroy_window(win->mlx_ptr, win->win_ptr);
-	if (key == 49)
-		mlx_clear_window(win->mlx_ptr, win->win_ptr);
-	return (0);
-}
+	int fd;
 
-int mouse_move(int key, int x, int y, void *param)
-{
-	t_mlx *win = param;
-	t_point o = {500, 500};
-	t_point p;
+	fd = open(av, O_RDONLY);
+	if (fd < 0)
+		return (ft_open_error(ERR_MAP));
 
-	if (key == 1)
-	{
-		p.x = x;
-		p.y = y;
-		plot_line(win->mlx_ptr, win->win_ptr, o, p);
-	}
 	return (0);
 }

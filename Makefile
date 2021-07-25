@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/24 17:00:19 by lraffin           #+#    #+#              #
-#    Updated: 2021/07/24 23:39:18 by lraffin          ###   ########.fr        #
+#    Updated: 2021/07/25 17:02:18 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,11 @@ OBJ_PATH =		./obj/
 # Binary
 
 SRC_NAME =	main.c \
-			fdf.c \
-			fdf_events.c \
-			fdf_line.c
+			ft_fdf.c \
+			ft_parse.c \
+			ft_error.c \
+			ft_events.c \
+			ft_line.c
 
 OBJ_NAME =	$(SRC_NAME:.c=.o)
 
@@ -45,7 +47,7 @@ LDFLAGS = -L./libft/
 
 LFT = -lft
 
-CFLAGS =	-Wall -Wextra -Werror -fsanitize=address
+CFLAGS =	-Wall -Wextra -Werror # -fsanitize=address
 
 MLX =		-lmlx -framework OpenGL -framework AppKit
 

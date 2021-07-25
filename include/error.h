@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/25 16:54:14 by lraffin          ###   ########.fr       */
+/*   Created: 2021/07/25 17:13:48 by lraffin           #+#    #+#             */
+/*   Updated: 2021/07/25 17:22:43 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
-#include "../include/libft.h"
+#ifndef ERROR_H
+# define ERROR_H
 
-int main(int ac, char **av)
-{
-	if (ac == 2)
-	{
-		ft_parse(av[1]);
-	}
-	else
-		ft_putstr("usage: ./fdf [file]\n");
-	return (0);
-}
+# define ERR_MAP "Incorrect map"
+
+#endif

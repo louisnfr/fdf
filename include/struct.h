@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/25 16:54:14 by lraffin          ###   ########.fr       */
+/*   Created: 2021/07/25 17:29:51 by lraffin           #+#    #+#             */
+/*   Updated: 2021/07/25 17:31:01 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
-#include "../include/libft.h"
+#ifndef STRUCT_H
+# define STRUCT_H
 
-int main(int ac, char **av)
+typedef struct s_mlx
 {
-	if (ac == 2)
-	{
-		ft_parse(av[1]);
-	}
-	else
-		ft_putstr("usage: ./fdf [file]\n");
-	return (0);
-}
+	void *mlx_ptr;
+	void *win_ptr;
+} t_mlx;
+
+typedef struct s_point
+{
+	int x;
+	int y;
+} t_point;
+
+typedef struct s_line
+{
+	t_point a;
+	t_point b;
+} t_line;
+
+#endif
