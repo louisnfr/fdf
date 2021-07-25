@@ -6,20 +6,20 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/25 16:54:14 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/25 18:21:10 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
-#include "../include/libft.h"
 
 int main(int ac, char **av)
 {
+	errno = 0;
 	if (ac == 2)
 	{
 		ft_parse(av[1]);
+		ft_fdf(av[1]);
 	}
-	else
-		ft_putstr("usage: ./fdf [file]\n");
+	ft_terminate(ERR_USAGE);
 	return (0);
 }

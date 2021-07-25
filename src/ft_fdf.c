@@ -6,13 +6,13 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 23:42:58 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/25 17:14:26 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/25 17:53:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 
-void fdf(char *av)
+void ft_fdf(char *av)
 {
 	t_mlx	*win;
 	int		fd;
@@ -40,7 +40,7 @@ void fdf(char *av)
 			mlx_pixel_put(win->mlx_ptr, win->win_ptr, i * 50, nbline * 50, GREEN);
 		}
 	}
-	// mlx_key_hook(win->win_ptr, deal_key, win);
-	// mlx_hook(win->win_ptr, 4, 0L, mouse_move, win);
+	mlx_key_hook(win->win_ptr, ft_deal_key, win);
+	mlx_hook(win->win_ptr, 4, 0L, ft_mouse_move, win);
 	mlx_loop(win->mlx_ptr);
 }

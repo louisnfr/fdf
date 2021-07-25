@@ -6,13 +6,14 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 17:13:48 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/25 17:22:43 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/25 17:59:54 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERROR_H
 # define ERROR_H
 
-# define ERR_MAP "Incorrect map"
+# define ERR_MAP "incorrect map"
+# define ERR_USAGE "usage: ./fdf [filename]"
 
 #endif

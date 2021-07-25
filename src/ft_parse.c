@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/25 17:15:13 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/25 18:22:21 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	ft_parse(char *av)
 
 	fd = open(av, O_RDONLY);
 	if (fd < 0)
-		return (ft_open_error(ERR_MAP));
+		ft_terminate(ERR_MAP);
+	
 
 	return (0);
 }
