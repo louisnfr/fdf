@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/24 17:00:19 by lraffin           #+#    #+#              #
-#    Updated: 2021/07/25 17:02:18 by lraffin          ###   ########.fr        #
+#    Updated: 2021/07/26 19:14:28 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ OBJ_PATH =		./obj/
 
 SRC_NAME =	main.c \
 			ft_fdf.c \
+			ft_init.c \
 			ft_parse.c \
+			ft_iso.c \
 			ft_error.c \
 			ft_events.c \
 			ft_line.c
@@ -47,7 +49,7 @@ LDFLAGS = -L./libft/
 
 LFT = -lft
 
-CFLAGS =	-Wall -Wextra -Werror # -fsanitize=address
+CFLAGS =	-Wall -Wextra -Werror -fsanitize=address
 
 MLX =		-lmlx -framework OpenGL -framework AppKit
 
@@ -81,7 +83,7 @@ fclean:	clean
 re:		fclean all
 
 norm:
-	@norminette -R CheckForbiddenSourceHeader $(SRC)
-	@norminette -R CheckDefine $(INCLUDE_PATH)*.h
+	@norminette $(SRC)
+	@norminette $(INCLUDE_PATH)*.h
 
 .PHONY:	all clean fclean re, norm
