@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/26 19:13:44 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/26 19:41:01 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int main(int ac, char **av)
 	{
 		map->file = av[1];
 		ft_parse(map);
-		// ft_fdf(av[1]);
 	}
 	else
 		ft_terminate(ERR_USAGE);

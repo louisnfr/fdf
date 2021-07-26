@@ -6,21 +6,21 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/25 18:29:23 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/26 19:49:34 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 
-void	ft_plot_line(void *mlx_ptr, void *win_ptr, t_point a, t_point b)
+void	ft_line(t_mlx *mlx, t_point a, t_point b)
 {
-	int dx = ft_abs(b.x - a.x), sx = a.x < b.x ? 1 : -1;
+	int dx = FT_ABS(b.x - a.x), sx = a.x < b.x ? 1 : -1;
 	int dy = -ft_abs(b.y - a.y), sy = a.y < b.y ? 1 : -1;
 	int err = dx + dy, e2;
 
 	while (1)
 	{
-		mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, GREEN * a.x);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, a.x, a.y, GREEN);
 		if (a.x == b.x && a.y == b.y)
 			break;
 		e2 = 2 * err;
