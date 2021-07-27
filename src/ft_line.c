@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/27 15:25:39 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/27 15:57:53 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,36 @@ void	ft_draw(t_mlx *mlx, t_map *map)
 
 	y = 0;
 	x = 0;
+	// t_point A = {500, 500, 5, BLUE};
+	// t_point B = {750, 750, 0, BLUE};
+
+	// ft_line(mlx, A, B);
+
 	while (map->matrix[y])
 	{
+		x = 0;
 		while (1)
 		{
 			if (map->matrix[y + 1])
-				ft_line(mlx, map->matrix[x][y], map->matrix[x][y + 1]);
-			break ;
+				ft_line(mlx, map->matrix[y][x], map->matrix[y + 1][x]);
+			if (!map->matrix[y][x].is_last)
+				ft_line(mlx, map->matrix[y][x], map->matrix[y][x + 1]);
+			if (map->matrix[y][x].is_last)
+				break ;
 			x++;
 		}
-		break ;
 		y++;
 	}
+	// while (map->matrix[y])
+	// {
+	// 	while (1)
+	// 	{
+	// 		if (map->matrix[y + 1])
+	// 			ft_line(mlx, map->matrix[x][y], map->matrix[x][y + 1]);
+	// 		break ;
+	// 		x++;
+	// 	}
+	// 	break ;
+	// 	y++;
+	// }
 }

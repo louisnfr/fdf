@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 17:29:51 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/27 15:11:01 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/27 15:55:37 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_point
 	int			y;
 	int			z;
 	int			color;
+	int			is_last;
 }				t_point;
 
 typedef struct s_map

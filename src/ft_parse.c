@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/27 15:45:42 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/27 15:56:39 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,14 @@ void	ft_fill_matrix(t_map *map, char *line, int y)
 	i = 0;
 	while (values[i])
 	{
-		// map->matrix[y][i].x = i;
-		// map->matrix[y][i].y = y;
-		// map->matrix[y][i].z = ft_atoi(values[i]);
+		map->matrix[y][i].x = i;
+		map->matrix[y][i].y = y;
+		map->matrix[y][i].z = ft_atoi(values[i]);
+		map->matrix[y][i].is_last = 0;
 		//free(values[i]);
 		i++;
 	}
+	map->matrix[y][--i].is_last = 1;
 	//free(values);
 }
 
@@ -72,10 +74,10 @@ void	ft_parse(t_map *map)
 
 	ft_get_values(map);
 	ft_open(map);
-	map->matrix = malloc(sizeof(int *) * (map->height + 1));
+	map->matrix = malloc(sizeof(t_point *) * (map->height + 1));
 	i = -1;
 	while (++i <= map->height)
-		map->matrix[i] = malloc(sizeof(int) * (map->width + 1));
+		map->matrix[i] = malloc(sizeof(t_point) * (map->width + 1));
 	i = 0;
 	while (get_next_line(map->fd, &line))
 	{
