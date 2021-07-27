@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/26 19:49:34 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/27 15:25:39 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,26 @@ void	ft_line(t_mlx *mlx, t_point a, t_point b)
 			err += dx;
 			a.y += sy;
 		}
+	}
+}
+
+void	ft_draw(t_mlx *mlx, t_map *map)
+{
+	int x;
+	int y;
+
+	y = 0;
+	x = 0;
+	while (map->matrix[y])
+	{
+		while (1)
+		{
+			if (map->matrix[y + 1])
+				ft_line(mlx, map->matrix[x][y], map->matrix[x][y + 1]);
+			break ;
+			x++;
+		}
+		break ;
+		y++;
 	}
 }

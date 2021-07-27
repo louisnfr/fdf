@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/24 17:00:19 by lraffin           #+#    #+#              #
-#    Updated: 2021/07/26 19:14:28 by lraffin          ###   ########.fr        #
+#    Updated: 2021/07/27 15:47:29 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,4 +86,10 @@ norm:
 	@norminette $(SRC)
 	@norminette $(INCLUDE_PATH)*.h
 
-.PHONY:	all clean fclean re, norm
+push:
+	git add .
+	git status
+	git commit -m fdf
+	git push
+
+.PHONY:	all clean fclean re, norm, push

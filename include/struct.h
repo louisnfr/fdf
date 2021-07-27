@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 17:29:51 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/26 19:07:23 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/27 15:11:01 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_point
 
 typedef struct s_map
 {
-	int			**matrix;
+	t_point		**matrix;
 	int			fd;
 	char		*file;
 	int			x;
