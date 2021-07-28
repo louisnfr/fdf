@@ -6,13 +6,13 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/27 15:38:18 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/28 21:14:26 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_map	*map;
 
