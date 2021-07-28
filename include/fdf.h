@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/28 20:29:57 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/28 20:52:48 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define HEIGHT 700
 
 void	ft_fdf(t_map *map);
+void	bresen(t_mlx *mlx, t_point a, t_point b);
 void	ft_init(t_map *map);
 void	ft_draw(t_mlx *mlx, t_map *map);
 void	ft_parse(t_map *map);

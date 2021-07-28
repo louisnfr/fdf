@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/28 20:48:57 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/28 20:52:40 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	bresen(t_mlx *mlx, t_point a, t_point b)
 	b.x *= mlx->zoom;
 	b.y *= mlx->zoom;
 
-	
+	color = (a.z || b.z) ? RED : GREEN;
 
 	x_step = b.x - a.x;
 	y_step = b.y - a.y;
@@ -33,7 +33,9 @@ void	bresen(t_mlx *mlx, t_point a, t_point b)
 	y_step /= max;
 	while ((int)(a.x - b.x) || (int)(a.y - b.y))
 	{
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, a.x, a.y, color
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, a.x, a.y, color);
+		a.x += x_step;
+		a.y += y_step;
 	}
 }
 
