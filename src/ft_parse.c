@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/27 15:56:39 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/28 19:34:07 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,24 +47,22 @@ void	ft_get_values(t_map *map)
 void	ft_fill_matrix(t_map *map, char *line, int y)
 {
 	char **values;
-	int i;
+	int x;
 
-	(void)map;
-	(void)y;
 	values = ft_split(line, ' ');
-	//free(line);
-	i = 0;
-	while (values[i])
+	x = 0;
+	while (values[x])
 	{
-		map->matrix[y][i].x = i;
-		map->matrix[y][i].y = y;
-		map->matrix[y][i].z = ft_atoi(values[i]);
-		map->matrix[y][i].is_last = 0;
-		//free(values[i]);
-		i++;
+		map->matrix[y][x].x = x;
+		map->matrix[y][x].y = y;
+		map->matrix[y][x].z = ft_atoi(values[x]);
+		map->matrix[y][x].is_last = 0;
+		free(values[x++]);
 	}
-	map->matrix[y][--i].is_last = 1;
-	//free(values);
+	free(values);
+	free(line);
+	// map->matrix[y][x] = NULL;
+	map->matrix[y][--x].is_last = 1;
 }
 
 void	ft_parse(t_map *map)
@@ -82,11 +80,9 @@ void	ft_parse(t_map *map)
 	while (get_next_line(map->fd, &line))
 	{
 		ft_fill_matrix(map, line, i);
-		free(line);
 		i++;
 	}
-
-
 	free(line);
+	map->matrix[i] = NULL;
 	ft_close(map);
 }

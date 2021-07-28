@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/27 15:29:43 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/28 20:29:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # include <math.h>
 # include <errno.h>
 
-# define HEIGHT 1080
-# define WIDTH 1920
+# define WIDTH 700
+# define HEIGHT 700
 
 void	ft_fdf(t_map *map);
 void	ft_init(t_map *map);

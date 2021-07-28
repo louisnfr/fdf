@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/24 17:00:19 by lraffin           #+#    #+#              #
-#    Updated: 2021/07/27 15:47:29 by lraffin          ###   ########.fr        #
+#    Updated: 2021/07/28 19:15:07 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRC_NAME =	main.c \
 			ft_iso.c \
 			ft_error.c \
 			ft_events.c \
-			ft_line.c
+			ft_draw.c
 
 OBJ_NAME =	$(SRC_NAME:.c=.o)
 
