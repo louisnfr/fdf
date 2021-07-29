@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/29 20:46:04 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/29 20:52:12 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_line(t_map *map, t_point a, t_point b);
 int		ft_key_press(int key, void *param);
 int		ft_mouse_press(int key, int x, int y, void *param);
 int		ft_mouse_release(int key, int x, int y, void *param);
-int		ft_mouse_move(int key, int x, int y, void *param);
+// int		ft_mouse_move(int key, int x, int y, void *param);
 void	ft_terminate(char *error_message);
 
 #endif

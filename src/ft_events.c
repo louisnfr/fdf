@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:35:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/29 20:49:44 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/29 20:53:54 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,20 @@ int	ft_mouse_press(int key, int x, int y, void *param)
 	map = param;
 	if (key == 4 || key == 5)
 		ft_zoom(map, key);
-	
+	if (key == 3)
+		map->mouse->mb_is_pressed = true;
 	mlx_clear_window(map->mlx_ptr, map->win_ptr);
 	ft_draw(map);
+	return (0);
+}
+
+int	ft_mouse_release(int key, int x, int y, void *param)
+{
+	t_map	*map;
+
+	(void)x;
+	(void)y;
+	map = param;
+	map->mouse->mb_is_pressed = false;
 	return (0);
 }
