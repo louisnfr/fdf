@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 23:42:58 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/28 21:08:36 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/29 16:14:48 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 void ft_fdf(t_map *map)
 {
-	t_mlx	*mlx;
+	map->mlx_ptr = mlx_init();
+	map->win_ptr = mlx_new_window(map->mlx_ptr, WIDTH, HEIGHT, "fdf");
+	map->zoom = 20;
+	map->shift_x = 150;
+	map->shift_y = 150;
 
-	mlx = malloc(sizeof(t_mlx));
-	if (!mlx)
-		return ;
-	mlx->mlx_ptr = mlx_init();
-	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WIDTH, HEIGHT, "fdf");
-	mlx->zoom = 20;
+	ft_draw(map);
 
-	ft_draw(mlx, map);
-
-	mlx_key_hook(mlx->win_ptr, ft_deal_key, mlx);
-	mlx_loop(mlx->mlx_ptr);
+	mlx_key_hook(map->win_ptr, ft_deal_key, map);
+	mlx_loop(map->mlx_ptr);
 }

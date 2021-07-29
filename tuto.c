@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 15:22:34 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/26 15:26:50 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/29 15:36:01 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,12 @@
 ** ----------------
 ** 7. fix leaks
 **         - type leaks a.out or leaks fdf in your shell
+*
+KEYS:
+123 : left arrow
+124 : right arrow
+125 : bottom arrow
+126 : up arrow
+
+
 */

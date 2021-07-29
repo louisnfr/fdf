@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/28 19:34:07 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/29 16:02:16 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	ft_fill_matrix(t_map *map, char *line, int y)
 	}
 	free(values);
 	free(line);
-	// map->matrix[y][x] = NULL;
 	map->matrix[y][--x].is_last = 1;
 }
 
