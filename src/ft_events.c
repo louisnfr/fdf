@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:35:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/29 20:53:54 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/29 20:55:23 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	ft_mouse_release(int key, int x, int y, void *param)
 
 	(void)x;
 	(void)y;
+	(void)key;
 	map = param;
 	map->mouse->mb_is_pressed = false;
 	return (0);
