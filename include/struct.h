@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 17:29:51 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/29 16:06:39 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/29 20:48:00 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,20 @@ typedef struct s_point
 	int			is_last;
 }				t_point;
 
+typedef struct s_mouse
+{
+	char	mb_is_pressed;
+	char	lb_is_pressed;
+	int		x;
+	int		y;
+	int		previous_x;
+	int		previous_y;
+}	t_mouse;
+
 typedef struct s_map
 {
 	char		*file;
+	t_mouse		*mouse;
 	int			fd;
 	void		*mlx_ptr;
 	void		*win_ptr;

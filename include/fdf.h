@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/29 19:01:46 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/29 20:46:04 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@
 
 # define WIDTH 1920
 # define HEIGHT 1080
+
+typedef enum
+{
+	false,
+	true
+}	t_bool;
 
 void	ft_fdf(t_map *map);
 void	bresen(t_map *map, t_point a, t_point b);
