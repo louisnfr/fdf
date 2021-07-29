@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:56:45 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/25 18:08:31 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/29 18:25:19 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,3 @@ void	ft_terminate(char *error_message)
 		perror(error_message);
 	exit(EXIT_FAILURE);
 }
-

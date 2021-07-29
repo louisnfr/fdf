@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/24 17:00:19 by lraffin           #+#    #+#              #
-#    Updated: 2021/07/28 19:15:07 by lraffin          ###   ########.fr        #
+#    Updated: 2021/07/29 18:24:36 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ SRC_NAME =	main.c \
 			ft_fdf.c \
 			ft_init.c \
 			ft_parse.c \
-			ft_iso.c \
 			ft_error.c \
 			ft_events.c \
 			ft_draw.c

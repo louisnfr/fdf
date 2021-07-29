@@ -6,17 +6,14 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:35:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/29 16:18:29 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/29 18:41:28 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 
-int ft_deal_key(int key, void *param)
+void	ft_move(t_map *map, int key)
 {
-	t_map *map = param;
-	if (key == 53)
-		exit(EXIT_SUCCESS);
 	if (key == 123)
 		map->shift_x -= 10;
 	if (key == 124)
@@ -25,6 +22,42 @@ int ft_deal_key(int key, void *param)
 		map->shift_y += 10;
 	if (key == 126)
 		map->shift_y -= 10;
+}
+
+void	ft_zoom(t_map *map, int key)
+{
+	if (key == 4)
+		map->zoom -= 1;
+	if (key == 5)
+		map->zoom += 1;
+}
+
+int	ft_deal_key(int key, void *param)
+{
+	t_map	*map;
+
+	map = param;
+	if (key == 53)
+		exit(EXIT_SUCCESS);
+	if (key == 123 || key == 124 || key == 125 || key == 126)
+		ft_move(map, key);
+	if (key == 123 || key == 124 || key == 125 || key == 126)
+		ft_move(map, key);
+	mlx_clear_window(map->mlx_ptr, map->win_ptr);
+	ft_draw(map);
+	return (0);
+}
+
+int	ft_deal_mouse(int key, int x, int y, void *param)
+{
+	t_map	*map;
+
+	(void)x;
+	(void)y;
+	printf("mouse: %d\n", key);
+	map = param;
+	if (key == 4 || key == 5)
+		ft_zoom(map, key);
 	mlx_clear_window(map->mlx_ptr, map->win_ptr);
 	ft_draw(map);
 	return (0);

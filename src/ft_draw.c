@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/29 16:13:53 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/29 18:14:51 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,6 @@ void	bresen(t_map *map, t_point a, t_point b)
 	a.y += map->shift_y;
 	b.x += map->shift_x;
 	b.y += map->shift_y;
-	// a.x += 150;
-	// a.y += 150;
-	// b.x += 150;
-	// b.y += 150;
 
 	x_step = b.x - a.x;
 	y_step = b.y - a.y;

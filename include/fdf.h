@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/29 16:09:05 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/29 19:01:46 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # include <math.h>
 # include <errno.h>
 
-# define WIDTH 700
-# define HEIGHT 700
+# define WIDTH 1920
+# define HEIGHT 1080
 
 void	ft_fdf(t_map *map);
 void	bresen(t_map *map, t_point a, t_point b);
@@ -37,8 +37,11 @@ void	ft_get_values(t_map *map);
 void	ft_open(t_map *map);
 void	ft_close(t_map *map);
 void	ft_line(t_map *map, t_point a, t_point b);
-int		ft_deal_key(int key, void *param);
+int		ft_key_press(int key, void *param);
+int		ft_mouse_press(int key, int x, int y, void *param);
+int		ft_mouse_release(int key, int x, int y, void *param);
 int		ft_mouse_move(int key, int x, int y, void *param);
 void	ft_terminate(char *error_message);
 
 #endif
+
