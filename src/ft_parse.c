@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/29 18:23:58 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/07/30 18:29:18 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,23 @@ void	ft_open(t_map *map)
 		ft_terminate(ERR_MAP);
 }
 
+int	ft_count_width(int width, char *line)
+{
+	char **split;
+	int w;
+	int i;
+
+	i = -1;
+	w = 0;
+	split = ft_split(line, ' ');
+	while (split[++i])
+		w++;
+	if (width == w)
+		return (0);
+	else
+		return (-1);
+}
+
 void	ft_get_values(t_map *map)
 {
 	char	**split;
@@ -40,7 +57,14 @@ void	ft_get_values(t_map *map)
 	while (split[++i])
 		map->width++;
 	while (get_next_line(map->fd, &line))
+	{
+		if (ft_count_width(map->width, line) == -1)
+		{
+			printf("oui\n");
+			ft_terminate(ERR_MAP);
+		}
 		map->height++;
+	}
 	free(line);
 }
 
