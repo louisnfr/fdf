@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/30 16:47:04 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/03 23:53:44 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 void	ft_iso(t_map *map, t_point *a)
 {
 	(*a).x = ((*a).x - (*a).y) * cos(map->angle);
-	(*a).y = ((*a).x + (*a).y) * sin(map->angle) - (*a).z;
+	(*a).y = (-(*a).z * map->z_multiplier) + ((*a).x + (*a).y) * sin(map->angle);
+
+
 }
 
 void	bresen(t_map *map, t_point a, t_point b)

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:35:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/30 17:03:35 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/03 23:55:30 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@ void	ft_zoom(t_map *map, int key)
 	ft_draw(map);
 }
 
+void	ft_scale(t_map *map, int key)
+{
+	if (key == 115)
+		map->z_multiplier += 1;
+	if (key == 119)
+		map->z_multiplier -= 1;
+	ft_draw(map);
+}
+
 int	ft_key_press(int key, void *param)
 {
 	t_map	*map;
@@ -43,6 +52,9 @@ int	ft_key_press(int key, void *param)
 		exit(EXIT_SUCCESS);
 	if (key == 123 || key == 124 || key == 125 || key == 126)
 		ft_move(map, key);
+	if (key == 115 || key == 119)
+		ft_scale(map, key);
+	// 115 = up 119 = down
 	return (0);
 }
 
@@ -81,7 +93,6 @@ int	ft_mouse_move(int x, int y, void *param)
 	t_map	*map;
 
 	map = param;
-	printf("x: %d\ty: %d\n", x, y);
 	map->mouse->previous_x = map->mouse->x;
 	map->mouse->previous_y = map->mouse->y;
 	map->mouse->x = x;

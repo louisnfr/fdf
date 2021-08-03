@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 17:29:51 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/30 16:52:19 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/03 23:56:05 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_map
 	double		angle;
 	int			x;
 	int			y;
+	int			z_multiplier;
 	int			shift_x;
 	int			shift_y;
 	int			height;
