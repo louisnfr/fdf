@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/07/30 16:27:38 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/04 00:07:24 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # include <math.h>
 # include <errno.h>
 
-# define WIDTH 500
-# define HEIGHT 500
+# define WIDTH 1920
+# define HEIGHT 1080
 
 typedef enum
 {
