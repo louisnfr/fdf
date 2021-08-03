@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:35:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/03 23:55:30 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/03 23:58:46 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	ft_key_press(int key, void *param)
 		ft_move(map, key);
 	if (key == 115 || key == 119)
 		ft_scale(map, key);
-	// 115 = up 119 = down
 	return (0);
 }
 

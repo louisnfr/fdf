@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/03 23:09:59 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/03 23:59:14 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	ft_open(t_map *map)
 
 int	ft_count_width(int width, char *line)
 {
-	char **split;
-	int w;
-	int i;
+	char	**split;
+	int		w;
+	int		i;
 
 	i = -1;
 	w = 0;

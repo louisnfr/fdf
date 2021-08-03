@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/03 23:53:44 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/04 00:01:55 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,16 @@
 void	ft_iso(t_map *map, t_point *a)
 {
 	(*a).x = ((*a).x - (*a).y) * cos(map->angle);
-	(*a).y = (-(*a).z * map->z_multiplier) + ((*a).x + (*a).y) * sin(map->angle);
-
-
+	(*a).y = (-(*a).z * map->z_multiplier)
+		+ ((*a).x + (*a).y) * sin(map->angle);
 }
 
 void	bresen(t_map *map, t_point a, t_point b)
 {
-	float x_step;
-	float y_step;
-	int color;
-	int max;
+	float	x_step;
+	float	y_step;
+	int		color;
+	int		max;
 
 	a.x *= map->zoom;
 	a.y *= map->zoom;
@@ -53,8 +52,8 @@ void	bresen(t_map *map, t_point a, t_point b)
 
 void	ft_draw(t_map *map)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	mlx_clear_window(map->mlx_ptr, map->win_ptr);
@@ -73,5 +72,4 @@ void	ft_draw(t_map *map)
 		}
 		y++;
 	}
-	// mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
 }
