@@ -17,11 +17,11 @@
 # include "error.h"
 # include "colors.h"
 # include "struct.h"
+# include "../minilibx/mlx.h"
 
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include <mlx.h>
 # include <math.h>
 # include <errno.h>
 
