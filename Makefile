@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 02:35:02 by lraffin           #+#    #+#              #
-#    Updated: 2021/08/25 03:13:42 by lraffin          ###   ########.fr        #
+#    Updated: 2021/08/25 03:17:42 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,8 +83,7 @@ fclean:
 	@rm -f $(NAME)
 	@make fclean -C $(LIBFT)
 
-re: fclean
-	@$(MAKE) all -j
+re: fclean all
 
 push:
 	git add .
