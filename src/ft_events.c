@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_events.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:35:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/03 23:58:46 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/25 02:48:56 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	ft_key_press(int key, void *param)
 {
 	t_map	*map;
 
+	printf("key pressed: %d\n", key);
 	map = param;
 	if (key == 53)
 		exit(EXIT_SUCCESS);

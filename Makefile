@@ -3,87 +3,88 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/24 17:00:19 by lraffin           #+#    #+#              #
-#    Updated: 2021/07/29 18:24:36 by lraffin          ###   ########.fr        #
+#    Created: 2021/08/25 02:35:02 by lraffin           #+#    #+#              #
+#    Updated: 2021/08/25 02:53:26 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Name
+### COMPILATION ###
+CC      = gcc -O2
+FLAGS  = -Wall -Wextra -Werror
 
-NAME =	fdf
+### EXECUTABLE ###
+NAME   = fdf
 
-# Path
+### INCLUDES ###
+LIBFT  = libft
+OBJ_PATH  = obj
+HEADER = include
+SRC_PATH  = src
+MLX = mlx_linux
 
-SRC_PATH =		./src/
+### SOURCE FILES ###
+SOURCES = main.c \
+	  ft_draw.c \
+	  ft_error.c \
+	  ft_fdf.c \
+	  ft_init.c \
+	  ft_iso.c \
+	  ft_events.c \
+	  ft_parse.c
 
-INCLUDE_PATH =	./include/
+### OBJECTS ###
 
-OBJ_PATH =		./obj/
+SRCS = $(addprefix $(SRC_PATH)/,$(SOURCES))
+OBJS = $(addprefix $(OBJ_PATH)/,$(SOURCES:.c=.o))
 
-# Binary
+### COLORS ###
+NOC         = \033[0m
+BOLD        = \033[1m
+UNDERLINE   = \033[4m
+BLACK       = \033[1;30m
+RED         = \033[1;31m
+GREEN       = \033[1;32m
+YELLOW      = \033[1;33m
+BLUE        = \033[1;34m
+VIOLET      = \033[1;35m
+CYAN        = \033[1;36m
+WHITE       = \033[1;37m
 
-SRC_NAME =	main.c \
-			ft_fdf.c \
-			ft_init.c \
-			ft_parse.c \
-			ft_error.c \
-			ft_events.c \
-			ft_draw.c
+### RULES ###
 
-OBJ_NAME =	$(SRC_NAME:.c=.o)
+all: lib tmp $(NAME)
 
-# Files
+lib:
+	@echo "$(GREEN)Creating lib files$(CYAN)"
+	@make -C $(LIBFT)
+	@make -C $(MLX)
 
-SRC =	$(addprefix $(SRC_PATH), $(SRC_NAME))
+$(NAME): $(OBJS)
+	$(CC) $(FLAGS) -L $(LIBFT) -L $(MLX) -o $@ $^ -lft -lmlx -lXext -lX11 -lm
+	@echo "$(GREEN)Project successfully compiled"
 
-OBJ =	$(addprefix $(OBJ_PATH), $(OBJ_NAME))
+tmp:
+	@mkdir -p obj
 
-# Flags
-
-CC =		gcc $(CFLAGS)
-
-LDFLAGS = -L./libft/
-
-LFT = -lft
-
-CFLAGS =	-Wall -Wextra -Werror -fsanitize=address
-
-MLX =		-lmlx -framework OpenGL -framework AppKit
-
-# Rules
-
-all:	$(NAME)
-
-$(NAME):	$(OBJ)
-	@make -C ./libft/
-	# @echo "\033[34mCreation of $(NAME) ...\033[0m"
-	@$(CC) $(LDFLAGS) $(LFT) $(OBJ) -o $@ $(MLX)
-	# @echo "\033[32m$(NAME) created\n\033[0m"
-
-$(OBJ_PATH)%.o:	$(SRC_PATH)%.c
-	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	@$(CC) $(CPPFLAGS) -o $@ -c $<
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER)/$(NAME).h
+	@$(CC) $(FLAGS) -c -o $@ $<
+	@echo "$(BLUE)Creating object file -> $(WHITE)$(notdir $@)... $(RED)[Done]$(NOC)"
 
 clean:
-	@make clean -C ./libft/
-	# @echo "\033[33mRemoval of .o files of $(NAME) ...\033[0m"
-	@rm -f $(OBJ)
-	@rmdir $(OBJ_PATH) 2> /dev/null || true
-	# @echo "\033[31mFiles .o deleted\n\033[0m"
+	@echo "$(GREEN)Supressing libraries files$(CYAN)"
+	@make clean -C $(LIBFT)
+	@rm -rf $(OBJ_PATH)
 
-fclean:	clean
-	@make fclean -C ./libft/
-	# @echo "\033[33mRemoval of $(NAME)...\033[0m"
+fclean:
+	@echo "$(GREEN)Supressing libraries files$(CYAN)"
+	@rm -rf $(OBJ_PATH)
 	@rm -f $(NAME)
-	# @echo "\033[31mBinary $(NAME) deleted\n\033[0m"
+	@make fclean -C $(LIBFT)
 
-re:		fclean all
-
-norm:
-	@norminette $(SRC)
-	@norminette $(INCLUDE_PATH)*.h
+re: fclean
+	@$(MAKE) all -j
 
 push:
 	git add .
@@ -91,4 +92,4 @@ push:
 	git commit -m fdf
 	git push
 
-.PHONY:	all clean fclean re, norm, push
+.PHONY: temporary, re, fclean, clean, push
