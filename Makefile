@@ -6,7 +6,7 @@
 #    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 02:35:02 by lraffin           #+#    #+#              #
-#    Updated: 2021/08/25 02:53:26 by lraffin          ###   ########.fr        #
+#    Updated: 2021/08/25 03:09:48 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBFT  = libft
 OBJ_PATH  = obj
 HEADER = include
 SRC_PATH  = src
-MLX = mlx_linux
+MLX = minilibx-linux
 
 ### SOURCE FILES ###
 SOURCES = main.c \
