@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_events.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:35:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/25 02:48:56 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/26 20:32:33 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	ft_move(t_map *map, int key)
 {
-	if (key == 123)
+	if (key == 65361)
 		map->shift_x -= 10;
-	if (key == 124)
+	if (key == 65363)
 		map->shift_x += 10;
-	if (key == 125)
+	if (key == 65364)
 		map->shift_y += 10;
-	if (key == 126)
+	if (key == 65362)
 		map->shift_y -= 10;
 	ft_draw(map);
 }
@@ -36,9 +36,9 @@ void	ft_zoom(t_map *map, int key)
 
 void	ft_scale(t_map *map, int key)
 {
-	if (key == 115)
-		map->z_multiplier += 1;
 	if (key == 119)
+		map->z_multiplier += 1;
+	if (key == 115)
 		map->z_multiplier -= 1;
 	ft_draw(map);
 }
@@ -49,9 +49,9 @@ int	ft_key_press(int key, void *param)
 
 	printf("key pressed: %d\n", key);
 	map = param;
-	if (key == 53)
+	if (key == 65307)
 		exit(EXIT_SUCCESS);
-	if (key == 123 || key == 124 || key == 125 || key == 126)
+	if (key == 65361 || key == 65362 || key == 65363 || key == 65364)
 		ft_move(map, key);
 	if (key == 115 || key == 119)
 		ft_scale(map, key);
