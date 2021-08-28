@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:35:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/26 20:32:33 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/28 01:15:13 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	ft_key_press(int key, void *param)
 {
 	t_map	*map;
 
-	printf("key pressed: %d\n", key);
 	map = param;
 	if (key == 65307)
 		exit(EXIT_SUCCESS);

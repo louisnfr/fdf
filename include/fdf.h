@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/25 03:12:03 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/28 02:19:06 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define WIDTH 300
 # define HEIGHT 240
 
-typedef enum
+typedef enum s_bool
 {
 	false,
 	true
@@ -51,4 +51,3 @@ void	ft_mouse_init(t_mouse *mouse);
 void	ft_terminate(char *error_message);
 
 #endif
-

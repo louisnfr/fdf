@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/04 00:01:55 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/28 01:44:40 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	bresen(t_map *map, t_point a, t_point b)
 	b.y += map->shift_y;
 	x_step = b.x - a.x;
 	y_step = b.y - a.y;
-	max = FT_MAX(FT_ABS(x_step), FT_ABS(y_step));
+	max = ft_max(ft_abs(x_step), ft_abs(y_step));
 	x_step /= max;
 	y_step /= max;
 	while ((int)(a.x - b.x) || (int)(a.y - b.y))

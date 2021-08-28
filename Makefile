@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+         #
+#    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 02:35:02 by lraffin           #+#    #+#              #
-#    Updated: 2021/08/25 19:57:10 by lraffin          ###   ########.fr        #
+#    Updated: 2021/08/28 02:17:12 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ NAME   = fdf
 
 ### INCLUDES ###
 LIBFT  = libft
-OBJ_PATH  = obj
 HEADER = include
+OBJ_PATH  = obj
 SRC_PATH  = src
 MLX = minilibx-linux
 
@@ -30,14 +30,13 @@ SOURCES = main.c \
 	  ft_error.c \
 	  ft_fdf.c \
 	  ft_init.c \
-	  ft_iso.c \
 	  ft_events.c \
 	  ft_parse.c
 
 ### OBJECTS ###
 
-SRCS = $(addprefix $(SRC_PATH)/,$(SOURCES))
-OBJS = $(addprefix $(OBJ_PATH)/,$(SOURCES:.c=.o))
+SRC = $(addprefix $(SRC_PATH)/,$(SOURCES))
+OBJ = $(addprefix $(OBJ_PATH)/,$(SOURCES:.c=.o))
 
 ### COLORS ###
 NOC         = \033[0m
@@ -57,11 +56,11 @@ WHITE       = \033[1;37m
 all: lib tmp $(NAME)
 
 lib:
-	@echo "$(GREEN)Creating lib files$(CYAN)"
+	@echo "$(GREEN)Creating libft"
 	@make -C $(LIBFT)
 	@make -C $(MLX)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJ)
 	$(CC) $(FLAGS) -L $(LIBFT) -L $(MLX) -o $@ $^ -lft -lmlx -lXext -lX11 -lm
 	@echo "$(GREEN)Project successfully compiled"
 
@@ -73,17 +72,21 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER)/$(NAME).h
 	@echo "$(BLUE)Creating object file -> $(WHITE)$(notdir $@)... $(RED)[Done]$(NOC)"
 
 clean:
-	@echo "$(GREEN)Supressing libraries files$(CYAN)"
+	@echo "$(RED)Supressing libraries files$(CYAN)"
 	@make clean -C $(LIBFT)
 	@rm -rf $(OBJ_PATH)
 
 fclean:
-	@echo "$(GREEN)Supressing libraries files$(CYAN)"
+	@echo "$(RED)Supressing libraries files$(CYAN)"
 	@rm -rf $(OBJ_PATH)
 	@rm -f $(NAME)
 	@make fclean -C $(LIBFT)
 
 re: fclean all
+
+norm:
+	-@norminette $(HEADER)
+	-@norminette $(SRC)
 
 push:
 	git add .
@@ -91,4 +94,4 @@ push:
 	git commit -m fdf
 	git push
 
-.PHONY: temporary, re, fclean, clean, push
+.PHONY: all, clean, fclean, re, tmp, norm, push
