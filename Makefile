@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 02:35:02 by lraffin           #+#    #+#              #
-#    Updated: 2021/08/28 02:17:12 by lraffin          ###   ########.fr        #
+#    Updated: 2021/08/28 19:06:45 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,12 +29,11 @@ SOURCES = main.c \
 	  ft_draw.c \
 	  ft_error.c \
 	  ft_fdf.c \
-	  ft_init.c \
+	  ft_utils.c \
 	  ft_events.c \
 	  ft_parse.c
 
 ### OBJECTS ###
-
 SRC = $(addprefix $(SRC_PATH)/,$(SOURCES))
 OBJ = $(addprefix $(OBJ_PATH)/,$(SOURCES:.c=.o))
 

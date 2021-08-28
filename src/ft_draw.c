@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/28 01:44:40 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/28 18:36:28 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,22 @@ void	ft_iso(t_map *map, t_point *a)
 		+ ((*a).x + (*a).y) * sin(map->angle);
 }
 
+void	ft_adjust_zoom(t_point *a, t_point *b, t_map *map)
+{
+	(*a).x *= map->zoom;
+	(*a).y *= map->zoom;
+	(*b).x *= map->zoom;
+	(*b).y *= map->zoom;
+}
+
+void	ft_adjust_shift(t_point *a, t_point *b, t_map *map)
+{
+	(*a).x += map->shift_x;
+	(*a).y += map->shift_y;
+	(*b).x += map->shift_x;
+	(*b).y += map->shift_y;
+}
+
 void	bresen(t_map *map, t_point a, t_point b)
 {
 	float	x_step;
@@ -26,17 +42,14 @@ void	bresen(t_map *map, t_point a, t_point b)
 	int		color;
 	int		max;
 
-	a.x *= map->zoom;
-	a.y *= map->zoom;
-	b.x *= map->zoom;
-	b.y *= map->zoom;
-	color = (a.z || b.z) ? RED : BLUE;
+	ft_adjust_zoom(&a, &b, map);
+	if (a.z || b.z)
+		color = RED;
+	else
+		color = BLUE;
 	ft_iso(map, &a);
 	ft_iso(map, &b);
-	a.x += map->shift_x;
-	a.y += map->shift_y;
-	b.x += map->shift_x;
-	b.y += map->shift_y;
+	ft_adjust_shift(&a, &b, map);
 	x_step = b.x - a.x;
 	y_step = b.y - a.y;
 	max = ft_max(ft_abs(x_step), ft_abs(y_step));
