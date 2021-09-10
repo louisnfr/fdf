@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/28 00:51:00 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/11 00:37:28 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	errno = 0;
 	map = malloc(sizeof(t_map));
 	if (!map)
-		ft_terminate(ERR_MALLOC);
+		ft_terminate(ERR_MALLOC, map);
 	ft_init(map);
 	if (ac == 2)
 	{
@@ -28,7 +28,8 @@ int	main(int ac, char **av)
 		ft_fdf(map);
 	}
 	else
-		ft_terminate(ERR_USAGE);
+		ft_terminate(ERR_USAGE, map);
+	// free mlx ptr
 	free(map);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 15:55:57 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/28 19:08:11 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/11 00:35:29 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_close(t_map *map)
 {
 	close(map->fd);
 	if (map->fd < 0)
-		ft_terminate(ERR_CLOSE);
+		ft_terminate(ERR_CLOSE, map);
 }
 
 void	ft_init(t_map *map)

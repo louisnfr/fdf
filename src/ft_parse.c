@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/28 19:08:05 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/11 00:35:49 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_open(t_map *map)
 {
 	map->fd = open(map->file, O_RDONLY);
 	if (map->fd < 0)
-		ft_terminate(ERR_MAP);
+		ft_terminate(ERR_MAP, map);
 }
 
 int	ft_count_width(int width, char *line)
@@ -51,7 +51,7 @@ void	ft_get_values(t_map *map)
 	while (get_next_line(map->fd, &line))
 	{
 		if (!ft_count_width(map->width, line))
-			ft_terminate(ERR_MAP);
+			ft_terminate(ERR_MAP, map);
 		map->height++;
 	}
 	free(line);

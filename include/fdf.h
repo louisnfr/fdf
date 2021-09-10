@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/28 02:19:06 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/11 00:35:03 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # include <math.h>
 # include <errno.h>
 
-# define WIDTH 300
-# define HEIGHT 240
+# define WIDTH 1920
+# define HEIGHT 1080
 
 typedef enum s_bool
 {
@@ -48,6 +48,6 @@ int		ft_mouse_press(int key, int x, int y, void *param);
 int		ft_mouse_release(int key, int x, int y, void *param);
 int		ft_mouse_move(int x, int y, void *param);
 void	ft_mouse_init(t_mouse *mouse);
-void	ft_terminate(char *error_message);
+void	ft_terminate(char *error_message, t_map *map);
 
 #endif
