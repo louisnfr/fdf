@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:35:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/28 19:08:30 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 21:41:06 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_key_press(int key, void *param)
 
 	map = param;
 	if (key == 65307)
-		exit(EXIT_SUCCESS);
+		ft_terminate("", map);
 	if (key == 65361 || key == 65362 || key == 65363 || key == 65364)
 		ft_move(map, key);
 	if (key == 115 || key == 119)
