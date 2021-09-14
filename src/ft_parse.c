@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/11 00:35:49 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/14 15:34:07 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@ void	ft_open(t_map *map)
 	map->fd = open(map->file, O_RDONLY);
 	if (map->fd < 0)
 		ft_terminate(ERR_MAP, map);
+}
+
+void	free_split(char **args, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < size)
+		free(args[i++]);
+	free(args);
 }
 
 int	ft_count_width(int width, char *line)
@@ -30,6 +40,7 @@ int	ft_count_width(int width, char *line)
 	split = ft_split(line, ' ');
 	while (split[++i])
 		w++;
+	free_split(split, i);
 	if (width == w)
 		return (1);
 	return (0);
@@ -46,14 +57,18 @@ void	ft_get_values(t_map *map)
 	map->height++;
 	i = -1;
 	split = ft_split(line, ' ');
+	free(line);
 	while (split[++i])
 		map->width++;
+	free_split(split, i);
 	while (get_next_line(map->fd, &line))
 	{
 		if (!ft_count_width(map->width, line))
 			ft_terminate(ERR_MAP, map);
 		map->height++;
+		free(line);
 	}
+	ft_close(map);
 	free(line);
 }
 
@@ -79,22 +94,22 @@ void	ft_fill_matrix(t_map *map, char *line, int y)
 
 void	ft_parse(t_map *map)
 {
-	char	*line;
-	int		i;
+	// char	*line;
+	// int		i;
 
 	ft_get_values(map);
-	ft_open(map);
-	map->matrix = malloc(sizeof(t_point *) * (map->height + 1));
-	i = -1;
-	while (++i <= map->height)
-		map->matrix[i] = malloc(sizeof(t_point) * (map->width + 1));
-	i = 0;
-	while (get_next_line(map->fd, &line))
-	{
-		ft_fill_matrix(map, line, i);
-		i++;
-	}
-	free(line);
-	map->matrix[i] = NULL;
-	ft_close(map);
+	// ft_open(map);
+	// map->matrix = malloc(sizeof(t_point *) * (map->height + 1));
+	// i = -1;
+	// while (++i <= map->height)
+	// 	map->matrix[i] = malloc(sizeof(t_point) * (map->width + 1));
+	// i = 0;
+	// while (get_next_line(map->fd, &line))
+	// {
+	// 	ft_fill_matrix(map, line, i);
+	// 	i++;
+	// }
+	// free(line);
+	// map->matrix[i] = NULL;
+	// ft_close(map);
 }
