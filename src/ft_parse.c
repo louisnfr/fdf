@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/14 15:34:07 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/14 16:07:06 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ void	ft_get_values(t_map *map)
 		map->height++;
 		free(line);
 	}
-	ft_close(map);
 	free(line);
+	ft_close(map);
 }
 
 void	ft_fill_matrix(t_map *map, char *line, int y)
