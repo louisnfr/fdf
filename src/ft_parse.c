@@ -6,11 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/09/14 23:59:35 by lraffin          ###   ########.fr       */
-=======
 /*   Updated: 2021/09/16 16:57:01 by lraffin          ###   ########.fr       */
->>>>>>> b455f2b6e91aee1a5186bd905886a3aa908ca22b
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,13 +106,9 @@ void	ft_parse(t_map *map)
 	i = -1;
 	while (++i < map->height)
 	{
-<<<<<<< HEAD
 		// printf("check\n");
-		map->matrix[i] = malloc(sizeof(t_point) * (map->width + 1));
-=======
 		printf("censé y avoir 3 ou 4, map[%d]\n", i);
 		map->matrix[i] = malloc(sizeof(t_point) * (map->width));
->>>>>>> b455f2b6e91aee1a5186bd905886a3aa908ca22b
 	}
 	printf("%d\n", i);
 	map->matrix[i] = NULL;
