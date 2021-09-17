@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/17 18:56:39 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/17 20:07:05 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ void	ft_open(t_map *map)
 {
 	map->fd = open(map->file, O_RDONLY);
 	if (map->fd < 0)
-		ft_terminate(ERR_MAP, map);
+	{
+		free(map);
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	free_split(char **args, size_t size)
@@ -50,12 +53,13 @@ void	ft_get_values(t_map *map)
 {
 	char	**split;
 	char	*line;
+	int		ret;
 	int		i;
 
 	ft_open(map);
-	get_next_line(map->fd, &line);
+	ret = get_next_line(map->fd, &line);
 	map->height++;
-	if (!ft_str_digit(line))
+	if (!line || line[0] == 0 || !ft_str_digit(line) || ret < 0)
 		ft_map_error(map, line);
 	i = -1;
 	split = ft_split(line, ' ');
@@ -65,7 +69,7 @@ void	ft_get_values(t_map *map)
 	free_split(split, i);
 	while (get_next_line(map->fd, &line))
 	{
-		if (!ft_count_width(map->width, line))
+		if (!ft_count_width(map->width, line) || !ft_str_digit(line))
 			ft_map_error(map, line);
 		map->height++;
 		free(line);
