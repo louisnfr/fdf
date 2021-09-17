@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 17:29:51 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/16 16:21:30 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/17 20:59:14 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ typedef struct s_point
 	float		x;
 	float		y;
 	float		z;
-	// int			color;
 	int			is_last;
 }				t_point;
 
