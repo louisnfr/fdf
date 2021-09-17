@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:56:45 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/17 18:11:51 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/17 18:50:59 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@ void	free_all(t_map *map)
 	i = -1;
 	if (!map)
 		return ;
-	// if (map->matrix)
-	// {
-	// 	while (++i < map->height)
-	// 		free(map->matrix[i]);
-	// 	free(map->matrix);
-	// }
-	// if (map->mlx_ptr)
-	// {
-	// 	mlx_destroy_window(map->mlx_ptr, map->win_ptr);
-	// 	mlx_destroy_display(map->mlx_ptr);
-	// 	free(map->mlx_ptr);
-	// }
-	// free(map->mouse);
+	if (map->matrix)
+	{
+		while (++i < map->height)
+			free(map->matrix[i]);
+		free(map->matrix);
+	}
+	if (map->mlx_ptr)
+	{
+		mlx_destroy_window(map->mlx_ptr, map->win_ptr);
+		mlx_destroy_display(map->mlx_ptr);
+		free(map->mlx_ptr);
+	}
+	free(map->mouse);
 	free(map);
 	map = NULL;
 }
