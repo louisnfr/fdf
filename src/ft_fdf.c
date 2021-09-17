@@ -6,11 +6,11 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 23:42:58 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/28 18:50:58 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/17 16:46:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "fdf.h"
 
 void	ft_controls(t_map *map)
 {
