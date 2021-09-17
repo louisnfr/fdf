@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:35:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/17 16:56:09 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/17 17:02:18 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ int	ft_key_press(int key, void *param)
 	map = param;
 	if (key == 65307)
 	{
-		mlx_destroy_window(map->mlx_ptr, map->win_ptr);
-		mlx_destroy_display(map->mlx_ptr);
 		free_all(map);
 		exit(EXIT_SUCCESS);
 	}
