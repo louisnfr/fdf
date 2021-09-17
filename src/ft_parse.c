@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/16 16:57:01 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/17 12:30:15 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	ft_fill_matrix(t_map *map, char *line, int y)
 	x = 0;
 	while (values[x])
 	{
-		printf("matrix[%d][%d]\n", y, x);
 		map->matrix[y][x].x = x;
 		map->matrix[y][x].y = y;
 		map->matrix[y][x].z = ft_atoi(values[x]);
@@ -105,13 +104,7 @@ void	ft_parse(t_map *map)
 	map->matrix = malloc(sizeof(t_point *) * (map->height));
 	i = -1;
 	while (++i < map->height)
-	{
-		// printf("check\n");
-		printf("censé y avoir 3 ou 4, map[%d]\n", i);
 		map->matrix[i] = malloc(sizeof(t_point) * (map->width));
-	}
-	printf("%d\n", i);
-	map->matrix[i] = NULL;
 	i = 0;
 	while (get_next_line(map->fd, &line))
 	{

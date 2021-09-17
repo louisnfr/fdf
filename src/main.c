@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/16 16:25:49 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/17 12:27:35 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int	main(int ac, char **av)
 	}
 	else
 		ft_terminate(ERR_USAGE, map);
-	free(map);
+	free_all(map);
 	return (0);
 }
