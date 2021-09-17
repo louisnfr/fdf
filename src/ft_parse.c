@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/17 16:46:46 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/17 18:12:55 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	ft_get_values(t_map *map)
 	ft_open(map);
 	get_next_line(map->fd, &line);
 	map->height++;
+	if (!ft_str_digit(line))
+		ft_map_error(map, line);
 	i = -1;
 	split = ft_split(line, ' ');
 	free(line);
@@ -100,7 +102,6 @@ void	ft_parse(t_map *map)
 
 	ft_get_values(map);
 	ft_open(map);
-	// printf("h: %d + 1\nw: %d + 1\n", map->height, map->width);
 	map->matrix = malloc(sizeof(t_point *) * (map->height + 1));
 	i = -1;
 	while (++i < map->height)
