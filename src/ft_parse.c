@@ -6,7 +6,11 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2021/09/14 23:59:35 by lraffin          ###   ########.fr       */
+=======
+/*   Updated: 2021/09/16 16:57:01 by lraffin          ###   ########.fr       */
+>>>>>>> b455f2b6e91aee1a5186bd905886a3aa908ca22b
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +85,7 @@ void	ft_fill_matrix(t_map *map, char *line, int y)
 	x = 0;
 	while (values[x])
 	{
+		printf("matrix[%d][%d]\n", y, x);
 		map->matrix[y][x].x = x;
 		map->matrix[y][x].y = y;
 		map->matrix[y][x].z = ft_atoi(values[x]);
@@ -100,13 +105,21 @@ void	ft_parse(t_map *map)
 
 	ft_get_values(map);
 	ft_open(map);
-	map->matrix = malloc(sizeof(t_point *) * (map->height + 1));
+	// printf("h: %d + 1\nw: %d + 1\n", map->height, map->width);
+	map->matrix = malloc(sizeof(t_point *) * (map->height));
 	i = -1;
-	while (++i <= map->height)
+	while (++i < map->height)
 	{
+<<<<<<< HEAD
 		// printf("check\n");
 		map->matrix[i] = malloc(sizeof(t_point) * (map->width + 1));
+=======
+		printf("censé y avoir 3 ou 4, map[%d]\n", i);
+		map->matrix[i] = malloc(sizeof(t_point) * (map->width));
+>>>>>>> b455f2b6e91aee1a5186bd905886a3aa908ca22b
 	}
+	printf("%d\n", i);
+	map->matrix[i] = NULL;
 	i = 0;
 	while (get_next_line(map->fd, &line))
 	{
@@ -114,6 +127,5 @@ void	ft_parse(t_map *map)
 		i++;
 	}
 	free(line);
-	// map->matrix[i] = NULL;
 	ft_close(map);
 }
