@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/17 12:30:15 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/17 12:39:16 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,11 @@ void	ft_parse(t_map *map)
 	ft_get_values(map);
 	ft_open(map);
 	// printf("h: %d + 1\nw: %d + 1\n", map->height, map->width);
-	map->matrix = malloc(sizeof(t_point *) * (map->height));
+	map->matrix = malloc(sizeof(t_point *) * (map->height + 1));
 	i = -1;
 	while (++i < map->height)
 		map->matrix[i] = malloc(sizeof(t_point) * (map->width));
+	map->matrix[i] = NULL;
 	i = 0;
 	while (get_next_line(map->fd, &line))
 	{
