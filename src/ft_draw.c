@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/17 16:47:07 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/19 00:43:48 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	ft_draw(t_map *map)
 
 	y = 0;
 	mlx_clear_window(map->mlx_ptr, map->win_ptr);
+	// mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, );
 	while (map->matrix[y])
 	{
 		x = 0;
