@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:56:45 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/17 20:58:53 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/18 12:58:49 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,21 @@ void	ft_terminate(char *error_message, t_map *map)
 	exit(EXIT_FAILURE);
 }
 
-void	free_all(t_map *map)
+void	free_matrix(t_map *map)
 {
 	int	i;
 
 	i = -1;
+	while (++i < map->height)
+		free(map->matrix[i]);
+	free(map->matrix);
+
+}
+
+void	free_all(t_map *map)
+{
 	if (!map)
 		return ;
-	if (map->matrix)
-	{
-		while (++i < map->height)
-			free(map->matrix[i]);
-		free(map->matrix);
-	}
 	if (map->mlx_ptr)
 	{
 		mlx_destroy_window(map->mlx_ptr, map->win_ptr);

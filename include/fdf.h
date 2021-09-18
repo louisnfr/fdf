@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/17 18:13:26 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/18 12:59:37 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ void	ft_mouse_init(t_mouse *mouse);
 void	ft_terminate(char *error_message, t_map *map);
 void	free_all(t_map *map);
 void	ft_map_error(t_map *map, char *line);
+void	free_matrix(t_map *map);
 
 #endif
