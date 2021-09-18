@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:56:45 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/18 12:58:49 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/18 13:38:09 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	free_matrix(t_map *map)
 	while (++i < map->height)
 		free(map->matrix[i]);
 	free(map->matrix);
-
 }
 
 void	free_all(t_map *map)
