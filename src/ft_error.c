@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:56:45 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/18 13:38:09 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/19 00:34:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	free_all(t_map *map)
 {
 	if (!map)
 		return ;
+	if (map->matrix)
+		free_matrix(map);
 	if (map->mlx_ptr)
 	{
 		mlx_destroy_window(map->mlx_ptr, map->win_ptr);
