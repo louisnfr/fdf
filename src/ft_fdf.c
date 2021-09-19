@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 23:42:58 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/19 02:14:21 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/19 02:30:18 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_fdf(t_map *map)
 	map->win_ptr = mlx_new_window(map->mlx_ptr, WIDTH, HEIGHT, "fdf");
 	init_image(map);
 
-	map->zoom = 1;
+	map->zoom = 10;
 	map->shift_x = 200;
 	map->shift_y = 200;
 	ft_draw(map);
