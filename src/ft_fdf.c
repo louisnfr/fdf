@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 23:42:58 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/19 02:13:53 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/19 02:14:21 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,6 @@ void	ft_fdf(t_map *map)
 	map->mlx_ptr = mlx_init();
 	map->win_ptr = mlx_new_window(map->mlx_ptr, WIDTH, HEIGHT, "fdf");
 	init_image(map);
-
-	// my_mlx_pixel_put(map->img, 5, 5, 0x00FF0000);
-	// mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
-	// mlx_loop(map->mlx_ptr);
 
 	map->zoom = 1;
 	map->shift_x = 200;
