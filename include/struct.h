@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 17:29:51 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/17 20:59:14 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/19 01:41:38 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,24 @@ typedef struct s_mouse
 	int		previous_y;
 }	t_mouse;
 
+typedef struct s_image
+{
+	char	*data;
+	int		endian;
+	int		bpp;
+	int		length;
+}				t_image;
+
 typedef struct s_map
 {
-	t_mouse		*mouse;
 	t_point		**matrix;
-	char		*file;
-	int			fd;
+	t_mouse		*mouse;
+	t_image		*img;
 	void		*mlx_ptr;
 	void		*win_ptr;
 	void		*img_ptr;
+	char		*file;
+	int			fd;
 	int			zoom;
 	double		angle;
 	int			x;

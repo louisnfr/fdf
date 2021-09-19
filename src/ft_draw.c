@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/19 00:43:48 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/19 02:13:19 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,14 @@ void	ft_adjust_shift(t_point *a, t_point *b, t_map *map)
 	(*b).y += map->shift_y;
 }
 
+void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = img->data + (y * img->length + x * (img->bpp / 8));
+	*(unsigned int*)dst = color;
+}
+
 void	bresen(t_map *map, t_point a, t_point b)
 {
 	float	x_step;
@@ -57,7 +65,7 @@ void	bresen(t_map *map, t_point a, t_point b)
 	y_step /= max;
 	while ((int)(a.x - b.x) || (int)(a.y - b.y))
 	{
-		mlx_pixel_put(map->mlx_ptr, map->win_ptr, a.x, a.y, color);
+		my_mlx_pixel_put(map->img, a.x, a.y, color);
 		a.x += x_step;
 		a.y += y_step;
 	}
@@ -69,8 +77,9 @@ void	ft_draw(t_map *map)
 	int	y;
 
 	y = 0;
-	mlx_clear_window(map->mlx_ptr, map->win_ptr);
-	// mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, );
+	// mlx_destroy_image(map->mlx_ptr, map->img_ptr); //exit
+	// ft_memset(map->img_ptr, 0, WIDTH * HEIGHT * map->img->bpp);
+	// mlx_clear_window(map->mlx_ptr, map->win_ptr);
 	while (map->matrix[y])
 	{
 		x = 0;
@@ -86,4 +95,5 @@ void	ft_draw(t_map *map)
 		}
 		y++;
 	}
+	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
 }
