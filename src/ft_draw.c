@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/19 02:47:55 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/20 17:08:32 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,29 +73,26 @@ void	bresen(t_map *map, t_point a, t_point b)
 
 void	ft_draw(t_map *map)
 {
-	// int	x;
-	// int	y;
+	int	x;
+	int	y;
 
-	// y = 0;
+	y = 0;
 
-	// mlx_clear_window(map->mlx_ptr, map->win_ptr);
-	t_point a = {5, 10, 10, 0};
-	t_point b = {10, 20, 10, 1};
-	bresen(map, a, b);
-	// while (map->matrix[y])
-	// {
-	// 	x = 0;
-	// 	while (1)
-	// 	{
-	// 		if (map->matrix[y + 1])
-	// 			bresen(map, map->matrix[y][x], map->matrix[y + 1][x]);
-	// 		if (!map->matrix[y][x].is_last)
-	// 			bresen(map, map->matrix[y][x], map->matrix[y][x + 1]);
-	// 		if (map->matrix[y][x].is_last)
-	// 			break ;
-	// 		x++;
-	// 	}
-	// 	y++;
-	// }
+	mlx_clear_window(map->mlx_ptr, map->win_ptr);
+	while (map->matrix[y])
+	{
+		x = 0;
+		while (1)
+		{
+			if (map->matrix[y + 1])
+				bresen(map, map->matrix[y][x], map->matrix[y + 1][x]);
+			if (!map->matrix[y][x].is_last)
+				bresen(map, map->matrix[y][x], map->matrix[y][x + 1]);
+			if (map->matrix[y][x].is_last)
+				break ;
+			x++;
+		}
+		y++;
+	}
 	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
 }
