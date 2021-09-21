@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:32:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/19 01:51:13 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/21 21:47:01 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_terminate(char *error_message, t_map *map);
 void	free_all(t_map *map);
 void	ft_map_error(t_map *map, char *line);
 void	free_matrix(t_map *map);
-
+void	ft_iso(t_map *map, t_point *a);
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
 
 #endif

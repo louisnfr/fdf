@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 23:42:58 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/21 20:30:20 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/21 21:46:41 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	init_image(t_map *map)
 	}
 	map->img_ptr = mlx_new_image(map->mlx_ptr, WIDTH, HEIGHT);
 	map->img->data = mlx_get_data_addr(map->img_ptr, &map->img->bpp,
-					&map->img->length, &map->img->endian);
+			&map->img->length, &map->img->endian);
 }
 
 void	ft_fdf(t_map *map)
@@ -40,7 +40,6 @@ void	ft_fdf(t_map *map)
 	map->mlx_ptr = mlx_init();
 	map->win_ptr = mlx_new_window(map->mlx_ptr, WIDTH, HEIGHT, "fdf");
 	init_image(map);
-
 	map->zoom = 10;
 	map->shift_x = 200;
 	map->shift_y = 200;

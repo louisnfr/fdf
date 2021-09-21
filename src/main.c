@@ -6,11 +6,18 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 21:12:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/19 02:15:58 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/21 21:45:46 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	ft_iso(t_map *map, t_point *a)
+{
+	(*a).x = ((*a).x - (*a).y) * cos(map->angle);
+	(*a).y = (-(*a).z * map->z_multiplier)
+		+ ((*a).x + (*a).y) * sin(map->angle);
+}
 
 int	main(int ac, char **av)
 {

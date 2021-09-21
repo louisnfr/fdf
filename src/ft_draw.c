@@ -6,18 +6,11 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/21 20:32:13 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/21 21:46:26 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-void	ft_iso(t_map *map, t_point *a)
-{
-	(*a).x = ((*a).x - (*a).y) * cos(map->angle);
-	(*a).y = (-(*a).z * map->z_multiplier)
-		+ ((*a).x + (*a).y) * sin(map->angle);
-}
 
 void	ft_adjust_zoom(t_point *a, t_point *b, t_map *map)
 {
@@ -40,7 +33,7 @@ void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
 	char	*dst;
 
 	dst = img->data + y * img->length + x * (img->bpp / 8);
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }
 
 void	bresen(t_map *map, t_point a, t_point b)
@@ -78,8 +71,11 @@ void	ft_draw(t_map *map)
 	int	y;
 
 	y = 0;
-
-	// mlx_clear_window(map->mlx_ptr, map->win_ptr);
+	if (map->img_ptr)
+		mlx_destroy_image(map->mlx_ptr, map->img_ptr);
+	map->img_ptr = mlx_new_image(map->mlx_ptr, WIDTH, HEIGHT);
+	map->img->data = mlx_get_data_addr(map->img_ptr, &map->img->bpp,
+			&map->img->length, &map->img->endian);
 	while (map->matrix[y])
 	{
 		x = 0;

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:50:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/19 02:30:02 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/21 21:45:14 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,12 @@ void	ft_fill_matrix(t_map *map, char *line, int y)
 	x = 0;
 	while (values[x])
 	{
-		// if (ft_atoi(values[x]) > 10000 || ft_atoi(values[x]) < -10000)
-		// {
-		// 	free_split(values, map->width);
-		// 	free_matrix(map);
-		// 	ft_map_error(map, line);
-		// }
+		if (ft_atoi(values[x]) > 10000 || ft_atoi(values[x]) < -10000)
+		{
+			free_split(values, map->width);
+			free_matrix(map);
+			ft_map_error(map, line);
+		}
 		map->matrix[y][x].x = x;
 		map->matrix[y][x].y = y;
 		map->matrix[y][x].z = ft_atoi(values[x]);
