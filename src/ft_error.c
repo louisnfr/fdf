@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:56:45 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/19 02:17:11 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/21 22:06:13 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_open(t_map *map)
 	map->fd = open(map->file, O_RDONLY);
 	if (map->fd < 0)
 	{
-		write(2, "incorrect map\n", 14);
+		perror("incorrect map");
 		free(map);
 		exit(EXIT_FAILURE);
 	}
@@ -64,7 +64,7 @@ void	ft_open(t_map *map)
 
 void	ft_map_error(t_map *map, char *line)
 {
-	write(2, "incorrect map\n", 14);
+	perror("incorrect map");
 	ft_close(map);
 	free(line);
 	free(map);
