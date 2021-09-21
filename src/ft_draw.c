@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:37:43 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/20 17:08:32 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/21 20:32:13 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = img->data + (y * img->length + x * (img->bpp / 8));
+	dst = img->data + y * img->length + x * (img->bpp / 8);
 	*(unsigned int*)dst = color;
 }
 
@@ -65,7 +65,8 @@ void	bresen(t_map *map, t_point a, t_point b)
 	y_step /= max;
 	while ((int)(a.x - b.x) || (int)(a.y - b.y))
 	{
-		my_mlx_pixel_put(map->img, a.x, a.y, color);
+		if ((a.x > 0 && a.y > 0) && (a.x < HEIGHT && a.y < WIDTH))
+			my_mlx_pixel_put(map->img, a.x, a.y, color);
 		a.x += x_step;
 		a.y += y_step;
 	}
@@ -78,7 +79,7 @@ void	ft_draw(t_map *map)
 
 	y = 0;
 
-	mlx_clear_window(map->mlx_ptr, map->win_ptr);
+	// mlx_clear_window(map->mlx_ptr, map->win_ptr);
 	while (map->matrix[y])
 	{
 		x = 0;
